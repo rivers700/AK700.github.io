@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>仙剑之痕：大梦一情</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <style>
+        .login_in1 p {
+            position: absolute;
+            top: 10%;
+            left: 0;
+            font-size: 0.35rem;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="title">
+        <h1>仙剑之痕：大梦一情</h1>
+    </div>
+    <div class="start">
+        <h1>进入游戏</h1>
+    </div>
+    <video loop="loop" autoplay="autoplay" muted>
+        <source src="./videos/仙境002.mp4" type="video/webm" />
+        <source src="./videos/仙境002.mp4" type="video/mp4" />
+    </video>
+    <audio  autoplay="autoplay" loop="loop" preload="auto">
+        <source  src="./audios/御剑江湖.mp3">
+        <embed src="./audios/御剑江湖.mp3" type="audios/御剑江湖.mp3" width="100px" height="100px" autostart="true" loop="true">
+    </audio>
+    <div class="box" id="box">
+        <div class="login_reg login_in">
+            <form action="#">
+                <h2>注册</h2>
+                <input type="text" placeholder="用户名" id="username1" class="userName1"/>
+                <input type="password" placeholder="密码" id="passwd1" class="Password1"/>
+                <input type="password" placeholder="确认密码" id="passwd2" class="Password2"/>
+                <button type="submit" class="reslogin">注册</button>
+                <span class="span1"></span>
+            </form>
+        </div>
+        <div class="login_in1 login_in">
+            <p>/*演示网页无需注册，直接点击登录即可游玩*/</p>
+            <form action="#">
+                <h2>登录</h2>
+                <input type="text" placeholder="用户名" id="username2" class="userName2"/>
+                <input type="password" placeholder="密码" id="passwd" class="Password"/>
+                <button type="submit" class="login">登录</button>
+                <span class="span2"></span>
+            </form>
+        </div>
+        <div class="sidebar-container">
+            <div class="sidebar">
+                <div class="login_inp login_pra">
+                    <h3>已有账号?</h3>
+                    <p>点击登录进入天玄剑</p>
+                    <button class="btn" id="sinIn">登录</button>
+                </div>
+                <div class="login_over login_pra">
+                    <h3>没有账号？</h3>
+                    <p>点击注册加入游戏世界</p>
+                    <button class="btn" id="sinUp">注册</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="./js/index.js"></script>
+</body>
+
+</html>

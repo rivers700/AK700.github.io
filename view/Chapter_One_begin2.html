@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>第一章</title>
+    </title>
+    <link rel="stylesheet" href="../css/all.css">
+    <style>
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: grid;
+            grid-template-columns: repeat(4, 100px);
+        }
+
+        .container .img-box {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #9adcff;
+            background-color: #effffd;
+        }
+
+        .img-box img {
+            display: none;
+            margin: 20px 20px;
+            width: 0.8rem;
+            height: 0.8rem;
+        }
+
+        .btn {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 2rem;
+            height: 1rem;
+            font-size: 0.3rem;
+            background-color: #9adcff;
+            border-radius: 0.3rem;
+            border: none;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 1em;
+            color: black;
+            animation: opacity-up 2s linear;
+        }
+
+        img {
+            width: 9rem;
+            height: 12rem;
+        }
+
+        .box {
+            position: absolute;
+            left: 0;
+            top: 15%;
+            /* width: 10rem;
+            height: 12rem; */
+        }
+
+        .dialog_box {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            /* background-color: white; */
+            background-image: linear-gradient(to right, black 80%, transparent);
+            border-radius: 0 0.5rem 0 0;
+            width: 90%;
+            height: 4rem;
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        .main_img {
+            display: block;
+        }
+
+        .dialog_box p {
+            position: absolute;
+            right: 15%;
+            /* transform: translateX(-50%); */
+            font-size: 0.55em;
+            width: 10rem;
+            /* white-space: nowrap; */
+            word-wrap: break-word;
+            color: white;
+        }
+
+        .btn_next {
+            position: absolute;
+            right: 5%;
+            bottom: 10%;
+            width: 0.5rem;
+            height: 0.5rem;
+            border-top: 0.2rem solid white;
+            border-right: 0.2rem solid white;
+            transform: rotate(135deg);
+            animation: opacity-up 1.5s linear infinite;
+        }
+
+        .box_pb {
+            display: none;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 8rem;
+            height: 5rem;
+            border-radius: 0.3rem;
+            background: black;
+            opacity: 0.6;
+        }
+
+        .box_pb p {
+            position: absolute;
+            width: 90%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 0.4rem;
+            /* text-align: center; */
+        }
+
+        .box_pb button {
+            width: 2.7rem;
+            height: 0.8rem;
+            color: black;
+            font-size: 0.35rem;
+            text-align: center;
+            border: none;
+            border-radius: 0.3rem;
+            background: #71d0ff;
+            cursor: pointer;
+        }
+
+        .box_pb .button1 {
+            position: absolute;
+            left: 10%;
+            bottom: 10%;
+        }
+
+        .box_pb .button2 {
+            position: absolute;
+            right: 10%;
+            bottom: 10%;
+        }
+
+        .btn_next {
+            position: absolute;
+            right: 5%;
+            bottom: 10%;
+            width: 0.5rem;
+            height: 0.5rem;
+            border-top: 0.2rem solid white;
+            border-right: 0.2rem solid white;
+            transform: rotate(135deg);
+            animation: opacity-up 1.5s linear infinite;
+        }
+
+        @keyframes opacity-up {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes n1 {
+            0% {
+                right: 0;
+            }
+
+            100% {
+                right: 25%;
+            }
+        }
+
+        @keyframes n2 {
+            0% {
+                left: 0;
+            }
+
+            100% {
+                left: 25%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <audio autoplay="autoplay" loop="loop" preload="auto" id="audio">
+        <source src="../audios/麦振鸿 - 龙葵—千年等待.ogg">
+        <embed src="../audios/麦振鸿 - 龙葵—千年等待.ogg" type="audios/麦振鸿 - 龙葵—千年等待.ogg" width="100px" height="100px"
+            autostart="true" loop="true">
+    </audio>
+    <audio preload="auto" id="clickMs">
+        <source src="../audios/点击.mp3">
+        <embed src="../audios/点击.mp3" type="audios/点击.mp3" width="100px" height="100px" autostart="true" loop="true">
+    </audio>
+    <audio loop="loop" preload="auto" id="combatMs">
+        <source src="../audios/打斗.mp3">
+        <embed src="../audios/打斗.mp3" type="audios/打斗.mp3" width="100px" height="100px" autostart="true" loop="true">
+    </audio>
+    <p class="title">安平镇</p>
+    <div class="box_container">
+        <div class="container">
+            <div class="img-box" id="item1">
+                <img src="../images/1.png" alt="苹果" id="fruit1" />
+            </div>
+            <div class="img-box" id="item2">
+                <img src="../images/2.jpg" alt="樱桃" id="fruit2" />
+            </div>
+            <div class="img-box" id="item3">
+                <img src="../images/3.jpg" alt="西瓜" id="fruit3" />
+            </div>
+            <div class="img-box" id="item4">
+                <img src="../images/4.jpg" alt="桃子" id="fruit4" />
+            </div>
+            <div class="img-box" id="item5">
+                <img src="../images/4.jpg" alt="桃子" id="fruit5" />
+            </div>
+            <div class="img-box" id="item6">
+                <img src="../images/5.jpg" alt="梨子" id="fruit6" />
+            </div>
+            <div class="img-box" id="item7">
+                <img src="../images/6.jpg" alt="草莓" id="fruit7" />
+            </div>
+            <div class="img-box" id="item8">
+                <img src="../images/1.png" alt="苹果" id="fruit8" />
+            </div>
+            <div class="img-box" id="item9">
+                <img src="../images/7.jpg" alt="葡萄" id="fruit9" />
+            </div>
+            <div class="img-box" id="item10">
+                <img src="../images/8.jpg" alt="橘子" id="fruit10" />
+            </div>
+            <div class="img-box" id="item11">
+                <img src="../images/3.jpg" alt="西瓜" id="fruit11" />
+            </div>
+            <div class="img-box" id="item12">
+                <img src="../images/2.jpg" alt="樱桃" id="fruit12" />
+            </div>
+            <div class="img-box" id="item13">
+                <img src="../images/5.jpg" alt="梨子" id="fruit13" />
+            </div>
+            <div class="img-box" id="item14">
+                <img src="../images/6.jpg" alt="草莓" id="fruit14" />
+            </div>
+            <div class="img-box" id="item15">
+                <img src="../images/8.jpg" alt="橘子" id="fruit15" />
+            </div>
+            <div class="img-box" id="item16">
+                <img src="../images/7.jpg" alt="葡萄" id="fruit16" />
+            </div>
+        </div>
+        <button class="btn" id="start" onclick="startGame()">开始</button>
+    </div>
+    <div class="box_pb box_pb1">
+        <p>就在这时，前面似乎传来了争吵的声音...</p>
+
+        <button class="button1">走过去看看</button>
+        <button class="button2">不予理会</button>
+    </div>
+    <div class="box_pb box_pb2">
+        <p>陈阳看着掌柜整理药材决定...</p>
+    
+        <button class="button1">帮忙整理</button>
+        <button class="button2">在旁边看着</button>
+    </div>
+    <div class="box_pb box_pb9">
+        <p>陈阳看着掌柜整理药材决定...</p>
+    
+        <button class="button1">帮忙整理</button>
+        <button class="button2">在旁边看着</button>
+    </div>
+    <div class="box_pb box_pb2_1">
+        <p>陈阳觉得如果不过去的话可能会错过些什么，还是决定走过看看</p>
+
+        <div class="btn_next"></div>
+    </div>
+    <div class="box_pb box_pb2_2">
+        <p>陈阳摇了摇头，还是决定先去给老头儿买药要紧</p>
+
+        <div class="btn_next"></div>
+    </div>
+    <div class="box_pb box_pb2_2_1">
+        <p>片刻后，刚才争吵的地方传来一名男性蛋碎的声音。。。</p>
+    
+        <div class="btn_next"></div>
+    </div>
+    <div class="box_pb box_pb2_1pb">
+        <p>片刻，在经过陈阳的教育之后。。。</p>
+        </p>
+
+        <div class="btn_next"></div>
+    </div>
+    <div class="box_pb box_pb2_2pb">
+        <p>宁之雪俏脸一红，陈阳也是觉得有些尴尬。。。</p>
+
+        <div class="btn_next"></div>
+    </div>
+    <div class="box_pb box_pb2_3pb">
+        <p>陈阳感觉时间紧迫便决定上前帮掌柜整理药材</p>
+
+        <div class="btn_next"></div>
+    </div>
+    <!-- 第二个剧情选择 -->
+    <div class="box_pb box_pb2_9pb">
+        <p>陈阳感觉时间紧迫便决定上前帮掌柜整理药材</p>
+    
+        <div class="btn_next"></div>
+    </div>
+    <div class="box_pb box_pb2_3pb_1">
+        <p>片刻之后，只见掌柜拿着药包还有一粒丹药</p>
+    
+        <div class="btn_next"></div>
+    </div>
+    
+    <div class="box_pb box_pb2_4pb">
+        <p>陈阳思考片刻，还是在原地等着掌柜整理</p>
+
+        <div class="btn_next"></div>
+    </div>
+    <!-- 第二个剧情选择 -->
+    <div class="box_pb box_pb9_4pb">
+        <p>陈阳思考片刻，还是在原地等着掌柜整理</p>
+    
+        <div class="btn_next"></div>
+    </div>
+    <div class="box_pb box_pb2_4pb_1">
+        <p>片刻后，掌柜整理完药材并将抓好的药递过来</p>
+    
+        <div class="btn_next"></div>
+    </div>
+    <div class="box_pb box_pb2_4pb_2">
+        <p>片刻后，掌柜整理完药材并将抓好的药递过来</p>
+    
+        <div class="btn_next"></div>
+    </div>
+    <div class="box_pb box_pb2_5pb">
+        <p>此时，一位中年男子抱着一位小女孩急急忙忙跑了进来。。。</p>
+
+        <div class="btn_next"></div>
+    </div>
+    <div class="box_pb box_pb2_5pb_1">
+        <p>此时，一位中年男子抱着一位小女孩急急忙忙跑了进来。。。</p>
+    
+        <div class="btn_next"></div>
+    </div>
+    <div class="box_btn">
+        <div class="box">
+        </div>
+        <div class="dialog_box">
+            <p></p>
+            <div class="btn_next"></div>
+        </div>
+    </div>
+    <!-- <div class="combat">
+        <img src="../images/魔主.webp" alt="" class="n1">
+        <img src="../images/剑仙.webp" alt="" class="n2">
+    </div> -->
+
+    <script src="../js/body.js"></script>
+    <script src="../js/viewJs/Chapter_One_begin2.js"></script>
+</body>
+
+</html>

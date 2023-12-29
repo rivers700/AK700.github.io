@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>第一章</title>
+    </title>
+    <link rel="stylesheet" href="../css/all.css">
+    <style>
+        /* body {
+            background-image: url('../images/隐居之地.jpg');
+        } */
+
+        .title {
+            text-align: center;
+            font-size: 1em;
+            color: black;
+            animation: opacity-up 2s linear;
+        }
+
+        img {
+            width: 9rem;
+            height: 12rem;
+        }
+
+        .box {
+            position: absolute;
+            left: 0;
+            top: 15%;
+            /* width: 10rem;
+            height: 12rem; */
+        }
+
+        .box_pb {
+            display: none;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 8rem;
+            height: 5rem;
+            border-radius: 0.3rem;
+            background: black;
+            opacity: 0.6;
+        }
+
+        .box_pb p {
+            position: absolute;
+            width: 90%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 0.4rem;
+            /* text-align: center; */
+        }
+
+        .box_pb button {
+            width: 2.7rem;
+            height: 0.8rem;
+            color: black;
+            font-size: 0.35rem;
+            text-align: center;
+            border: none;
+            border-radius: 0.3rem;
+            background: #71d0ff;
+            cursor: pointer;
+        }
+
+        .box_pb .button1 {
+            position: absolute;
+            left: 10%;
+            bottom: 10%;
+        }
+
+        .box_pb .button2 {
+            position: absolute;
+            right: 10%;
+            bottom: 10%;
+        }
+
+        .box_img img {
+            display: none;
+            position: absolute;
+            left: 0;
+            bottom: 25%;
+            width: 6rem;
+            height: 6rem;
+        }
+
+        .dialog_box {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            /* background-color: white; */
+            background-image: linear-gradient(to right, black 80%, transparent);
+            border-radius: 0 0.5rem 0 0;
+            width: 90%;
+            height: 4rem;
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        .main_img {
+            display: block;
+        }
+
+        .dialog_box p {
+            position: absolute;
+            right: 15%;
+            /* transform: translateX(-50%); */
+            font-size: 0.55em;
+            width: 10rem;
+            /* white-space: nowrap; */
+            word-wrap: break-word;
+            color: white;
+        }
+
+        .btn_next {
+            position: absolute;
+            right: 5%;
+            bottom: 10%;
+            width: 0.5rem;
+            height: 0.5rem;
+            border-top: 0.2rem solid white;
+            border-right: 0.2rem solid white;
+            transform: rotate(135deg);
+            animation: opacity-up 1.5s linear infinite;
+        }
+
+        .combat {
+            display: none;
+        }
+
+        .combat .n1 {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            animation: n1 1s linear infinite;
+        }
+
+        .combat .n2 {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            animation: n2 1s linear infinite;
+        }
+
+        @keyframes opacity-up {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes opacity-dom {
+            0% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes n1 {
+            0% {
+                right: 0;
+            }
+
+            100% {
+                right: 25%;
+            }
+        }
+
+        @keyframes n2 {
+            0% {
+                left: 0;
+            }
+
+            100% {
+                left: 25%;
+            }
+        }
+
+        @keyframes n3 {
+            0% {
+                left: 0;
+            }
+
+            100% {
+                left: 70%;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <audio loop="loop" preload="auto" id="audio">
+        <source src="../audios/雪见落入凡尘.mp3">
+        <embed src="../audios/雪见落入凡尘.mp3" type="audios/雪见落入凡尘.mp3" width="100px" height="100px" autostart="true"
+            loop="true">
+    </audio>
+    <audio preload="auto" id="clickMs">
+        <source src="../audios/点击.mp3">
+        <embed src="../audios/点击.mp3" type="audios/点击.mp3" width="100px" height="100px" autostart="true" loop="true">
+    </audio>
+    <audio loop="loop" preload="auto" id="combatMs">
+        <source src="../audios/打斗.mp3">
+        <embed src="../audios/打斗.mp3" type="audios/打斗.mp3" width="100px" height="100px" autostart="true" loop="true">
+    </audio>
+    <audio preload="auto" id="stone">
+        <source src="../audios/碎裂.mp3">
+        <embed src="../audios/碎裂.mp3" type="audios/碎裂.mp3" width="100px" height="100px" autostart="true" loop="true">
+    </audio>
+    <p class="title">望剑庐后山</p>
+    <div class="box_pb box_pb1">
+        <p>此时，一位样貌英俊却又带点青涩的青年，正在修炼剑术，手中的铁剑劈砍在巨石上发出清脆的金属碰撞声，一声巨响，巨石已然化为碎片</p>
+
+        <div class="btn_next"></div>
+    </div>
+    <div class="box_pb box_pb2">
+        <p>这时草丛里传来了沙沙的声音，似乎有什么东西躲在里面</p>
+
+        <button class="button1">走过去看看</button>
+        <button class="button2">一剑斩过去</button>
+    </div>
+    <div class="box_img">
+        <img src="../images/野兔.png" alt="">
+    </div>
+    <div class="box_pb box_pb2_1">
+        <p>突然一只兔子钻了出来，并逃向了远方，还回头看了陈阳一眼似是在笑话他</p>
+
+        <div class="btn_next"></div>
+    </div>
+    <div class="box_pb box_pb2_2">
+        <p>陈阳往草丛望去，一只野兔倒在了草丛里，陈阳过去把它捡起</p>
+
+        <div class="btn_next"></div>
+    </div>
+    <div class="box_pb box_pb3">
+        <p>不听竹老劝说，陈阳转头直接往安平镇的方向跑去...</p>
+
+        <div class="btn_next"></div>
+    </div>
+    <div class="box_pb box_pb3_1">
+        <p>片刻之后...竹老感受到一股杀气扑面而来！</p>
+
+        <div class="btn_next"></div>
+    </div>
+    <div class="box_pb box_pb3_2">
+        <p>刹那间，两人已是战到了一起，与此同时...</p>
+
+        <div class="btn_next"></div>
+    </div>
+    <div class="box_btn">
+        <div class="box">
+            <!-- <img src="../images/主角.webp" alt="" >
+            <img src="../images/魔主.webp" alt="" style="display: none;">
+            <img src="../images/剑仙.webp" alt="" style="display: none;">
+            <img src="../images/女一.jpg" alt="">
+            <img src="../images/花花公子.webp" alt=""> -->
+        </div>
+        <div class="dialog_box">
+            <p></p>
+            <div class="btn_next"></div>
+        </div>
+    </div>
+    <div class="combat">
+        <img src="../images/师父.png" alt="" class="n1">
+        <img src="../images/黑衣人.png" alt="" class="n2">
+    </div>
+    <!-- <img src="../images/稿定抠图.png" alt=""> -->
+    <script src="../js/body.js"></script>
+    <script src="../js/viewJs/Chapter_One_begin1.js"></script>
+</body>
+
+</html>

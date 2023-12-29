@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/body.css">
+    <style>
+        body {
+            background-color: black;
+        }
+
+        .box {
+            /* 动画结束后保持状态 */
+            font-size: 0.45rem;
+            color: white;
+            animation: slide-up 12s ease-in-out;
+            animation-fill-mode: forwards;
+            /* 动画结束后保持状态 */
+        }
+
+        .start {
+            display: none;
+            font-size: 0.55rem;
+            color: white;
+            animation: opacity-up 2s linear infinite;
+        }
+
+        @keyframes opacity-up {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slide-up {
+            0% {
+                opacity: 0;
+                transform: translateY(100%);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <audio autoplay="autoplay" loop="loop" preload="auto">
+        <source src="../audios/雪见落入凡尘.mp3">
+        <embed src="../audios/雪见落入凡尘.mp3" type="audios/雪见落入凡尘.mp3" width="100px" height="100px" autostart="true"
+            loop="true">
+    </audio>
+    <div class="box">
+        <p>在天元大陆的遥远历史中，</p>
+        <p>魔族和人族共同生活在这个天元大陆中，</p>
+        <p>魔族和人族的恩怨如同深深扎根的藤蔓，</p>
+        <p>终于在千年前爆发斗争，</p>
+        <p>人族各大家族派出了无数勇士去抵御这场来势汹汹的入侵。</p>
+        <p>然而，魔族的强大来自于他们天生的肉体力量，使得人族屡屡节节败退，悬在生死边缘。</p>
+        <p>在危机时刻，一位被誉为人族强者的英雄挺身而出，一人一剑，斩的魔族败逃，</p>
+        <p>终于，人族强者与魔族之主在灵谷展开了一场惊心动魄的生死对决。</p>
+        <p>在那一刻，天地仿佛都为之变色，剑气如虹，鲜血如雨。</p>
+        <p>在激战的余波中，人族强者和魔族之主都身受重伤，魔族败逃</p>
+        <p>人族强者鼓起仅剩的力量，握紧手中的长剑，施展出他所铸就的最强一剑。</p>
+        <p>随即，一挥之下，一条巨大的山脉横亘东西，将人族和魔族分隔。</p>
+        <p>从此，魔族便在这片大陆上归于沉寂，而人族则在这次战争中渐渐走出阴霾，重获和平与幸福。</p>
+        <p>直到千年之后......</p>
+    </div>
+    <div class="start">点击继续......</div>
+    <script>
+        setTimeout(function () {
+            document.querySelector('.start').style.display = 'block';
+        }, 13000)
+        document.querySelector('.start').onclick = function () {
+            location.href = './Chapter_One_begin1.html';
+        }
+    </script>
+    <script src="../js/body.js"></script>
+</body>
+
+</html>

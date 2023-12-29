@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>第一章</title>
+    </title>
+    <link rel="stylesheet" href="../css/all.css">
+    <style>
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: grid;
+            grid-template-columns: repeat(4, 100px);
+        }
+
+        .container .img-box {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #9adcff;
+            background-color: #effffd;
+        }
+
+        .img-box img {
+            display: none;
+            margin: 20px 20px;
+            width: 0.8rem;
+            height: 0.8rem;
+        }
+
+        .btn {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 2rem;
+            height: 1rem;
+            font-size: 0.3rem;
+            background-color: #9adcff;
+            border-radius: 0.3rem;
+            border: none;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 1em;
+            color: black;
+            animation: opacity-up 2s linear;
+        }
+
+        img {
+            width: 9rem;
+            height: 12rem;
+        }
+
+        .box {
+            position: absolute;
+            left: 0;
+            top: 15%;
+            /* width: 10rem;
+            height: 12rem; */
+        }
+
+        .dialog_box {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            /* background-color: white; */
+            background-image: linear-gradient(to right, black 80%, transparent);
+            border-radius: 0 0.5rem 0 0;
+            width: 90%;
+            height: 4rem;
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        .main_img {
+            display: block;
+        }
+
+        .dialog_box p {
+            position: absolute;
+            right: 15%;
+            /* transform: translateX(-50%); */
+            font-size: 0.55em;
+            width: 10rem;
+            /* white-space: nowrap; */
+            word-wrap: break-word;
+            color: white;
+        }
+
+        .btn_next {
+            position: absolute;
+            right: 5%;
+            bottom: 10%;
+            width: 0.5rem;
+            height: 0.5rem;
+            border-top: 0.2rem solid white;
+            border-right: 0.2rem solid white;
+            transform: rotate(135deg);
+            animation: opacity-up 1.5s linear infinite;
+        }
+
+        .box_pb {
+            display: none;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 8rem;
+            height: 5rem;
+            border-radius: 0.3rem;
+            background: black;
+            opacity: 0.6;
+        }
+
+        .box_pb p {
+            position: absolute;
+            width: 90%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 0.4rem;
+            /* text-align: center; */
+        }
+
+        .box_pb button {
+            width: 2.7rem;
+            height: 0.8rem;
+            color: black;
+            font-size: 0.35rem;
+            text-align: center;
+            border: none;
+            border-radius: 0.3rem;
+            background: #71d0ff;
+            cursor: pointer;
+        }
+
+        .box_pb .button1 {
+            position: absolute;
+            left: 10%;
+            bottom: 10%;
+        }
+
+        .box_pb .button2 {
+            position: absolute;
+            right: 10%;
+            bottom: 10%;
+        }
+
+        .btn_next {
+            position: absolute;
+            right: 5%;
+            bottom: 10%;
+            width: 0.5rem;
+            height: 0.5rem;
+            border-top: 0.2rem solid white;
+            border-right: 0.2rem solid white;
+            transform: rotate(135deg);
+            animation: opacity-up 1.5s linear infinite;
+        }
+
+        @keyframes jitter {
+            0% {
+                transform: translate(0px, 0px);
+            }
+
+            25% {
+                transform: translate(10px, 0px);
+            }
+
+            50% {
+                transform: translate(10px, 10px);
+            }
+
+            75% {
+                transform: translate(0px, 10px);
+            }
+
+            100% {
+                transform: translate(0px, 0px);
+            }
+        }
+
+        .jitter {
+            animation: jitter 0.2s 4 linear;
+        }
+
+        @keyframes opacity-up {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes n1 {
+            0% {
+                right: 0;
+            }
+
+            100% {
+                right: 25%;
+            }
+        }
+
+        @keyframes n2 {
+            0% {
+                left: 0;
+            }
+
+            100% {
+                left: 25%;
+            }
+        }
+
+        @keyframes n1 {
+            0% {
+                right: 0;
+            }
+
+            100% {
+                right: 25%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <audio autoplay="autoplay" loop="loop" preload="auto" id="audio">
+        <source src="../audios/雪见落入凡尘.mp3">
+        <embed src="../audios/雪见落入凡尘.mp3" type="audios/雪见落入凡尘.mp3" width="100px" height="100px" autostart="true"
+            loop="true">
+    </audio> -->
+    <audio preload="auto" id="clickMs">
+        <source src="../audios/点击.mp3">
+        <embed src="../audios/点击.mp3" type="audios/点击.mp3" width="100px" height="100px" autostart="true" loop="true">
+    </audio>
+
+    <audio autoplay="autoplay" loop="loop" preload="auto" id="audio">
+        <source src="../audios/雨声.mp3">
+        <embed src="../audios/雨声.mp3" type="audios/雨声.mp3" width="100px" height="100px" autostart="true" loop="true">
+    </audio>
+    <p class="title">望剑庐后山</p>
+
+    <div class="box_pb box_pb1">
+        <p>陈阳踏上望剑庐后山，一片寂静，只有微风吹过的声音。一阵战战兢兢的不安感涌上心头</p>
+
+        <div class="btn_next"></div>
+    </div>
+    <div class="box_pb box_pb2">
+        <p>他加快了脚步，心急火燎地闯进庐内。然而，他看到的景象让他瞬间僵住。</p>
+
+        <div class="btn_next"></div>
+    </div>
+    <div class="box_pb box_pb3">
+        <p>竹老一下打断他</p>
+
+        <div class="btn_next"></div>
+    </div>
+    <div class="box_pb box_pb4">
+        <p>竹老最后的眼神渐渐黯淡，最后一口气已经离他而去。。。</p>
+
+        <div class="btn_next"></div>
+    </div>
+    <!-- <div class="box_pb box_pb5">
+        <p>竹老最后的眼神渐渐黯淡，最后一口气已经离他而去。。。</p>
+    
+        <div class="btn_next"></div>
+    </div> -->
+    <div class="box_btn">
+        <div class="box">
+        </div>
+        <div class="dialog_box">
+            <p></p>
+            <div class="btn_next"></div>
+        </div>
+    </div>
+
+    <script src="../js/body.js"></script>
+    <script src="../js/viewJs/Chapter_One_begin3.js"></script>
+</body>
+
+</html>
